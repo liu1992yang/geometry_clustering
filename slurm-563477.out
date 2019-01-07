@@ -1,0 +1,10 @@
+Now starting clustering
+best k from rmsd:15;
+best k from score:12;
+best k from rmsd_smoothed:15;
+best k from score_smoothed:12;
+Use 14 for k mean clustering
+
+real	1m33.202s
+user	21m29.260s
+sys	0m51.436s
