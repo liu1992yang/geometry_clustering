@@ -81,8 +81,11 @@ def read_energy_file(energy_fname):
 
 def get_comfile_name(energy_name):
   #keep extracted file format
-  return energy_name.strip()
-  
+  #also allow compatibility of the old version that file ended in *.com
+  if '.' in energy_name:
+    return energy_name.strip()
+  else:
+    return energy_name.strip() + ".com"
      
     
 def read_geomfile(filename):
