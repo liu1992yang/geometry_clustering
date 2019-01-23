@@ -4,7 +4,7 @@ A Machine Learning Project: Based on geometry similarity (secondary or superseco
 Usage `$python cluster_kmean_hb.py energyFile keyAtomFile maxK`
 
 ## input file types
-`energyFile` : tab or white space deliminated two column text(without header)-- column1: `.com|.gjf` (gaussian/gaussview readable) filenames, column2: current energy
+`energyFile` : tab or white space deliminated two column text(without header)-- column1: `.com|.gjf` (only gaussian/gaussview readable) filenames, column2: current energy
   This file was used mainly to get a list of file of interest, the energy are at the current level of computation.  
   
 `keyAtomFile` : a chemistry concept, key atoms that define the 'back-bone' and chemical conformation of a biomolecule, such as `\alpha`-C and amide Nitrogens. Two key atoms defined a linear structure, and every set of three not-colinear atoms of a molecule defines a plane.  
