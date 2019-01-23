@@ -80,8 +80,9 @@ def read_energy_file(energy_fname):
 
 
 def get_comfile_name(energy_name):
-  snap_name = energy_name.split(".")[0]
-  return snap_name + ".com"
+  #keep extracted file format
+  return energy_name.strip()
+  
      
     
 def read_geomfile(filename):

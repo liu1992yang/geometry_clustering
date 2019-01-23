@@ -44,3 +44,4 @@ plot an `elbow plot` of RMSD and score vs. k value and find the corresponding k 
 "elbow point" was determined by finding the furthest point of the curve to the line(x0, xn)
 Then use this `best K` for a final kmean clustering and record the cluster details.
 
+# new_repo
