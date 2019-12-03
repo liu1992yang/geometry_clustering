@@ -261,6 +261,8 @@ def get_pair_distances(coords_dict, idx_pairs):
 
 def get_rmsd_score(dists_data,list_k):
   """
+  calculate root mean inertia (sum of squared distances of samples to their 
+  closest cluster center) score
   type dists_data: DataFrame
   type K: List[int]
   """  
@@ -275,6 +277,11 @@ def get_rmsd_score(dists_data,list_k):
   return rmsd, score
 
 def max_dist_to_line_k(score, list_k):#list
+  """
+  draw a line between the first and last point on the curve
+  and measure the distance of each point to the line
+  return the k corresponding to the max distance to the line
+  """
   n_points = len(list_k)
   all_coords = np.vstack((range(n_points),score)).T
   np.array([range(n_points), score])
@@ -290,6 +297,9 @@ def max_dist_to_line_k(score, list_k):#list
 
 
 def get_best_k(rmsd, score, list_k, max_k):
+  """
+  based on polynomial fitted curve, find the best k correspond to elbow point
+  """
   assert len(rmsd) == len(list_k)
   rmsd_smoothed = signal.savgol_filter(rmsd,window_length=7,polyorder=5)
   score_smoothed = signal.savgol_filter(score,window_length=7,polyorder=5)
@@ -314,6 +324,11 @@ def get_best_k(rmsd, score, list_k, max_k):
 
 
 def best_k_cluster(best_k,max_iteration, data):
+  """
+  Based on pre-determined K, perform kmeans clustering
+  return clustering group assignment and 
+  H-bond pattern
+  """  
   km = KMeans(n_clusters = best_k, max_iter = max_iteration)
   result = km.fit_predict(data)
   result_df = pd.DataFrame({"cluster":result})
